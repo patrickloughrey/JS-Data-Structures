@@ -45,6 +45,6 @@ let myStack = new Stack();
 
 myStack.push(1);
 myStack.push(2);
-console.log(myStack.peek); /* Should log "2" */
-consolelog(myStack.pop); /* Should log "2" */
-console.log(myStack.peek); /* Should log "1" */
+console.log(myStack.peek()); /* Should log "2" */
+consolelog(myStack.pop()); /* Should log "2" */
+console.log(myStack.peek()); /* Should log "1" */
