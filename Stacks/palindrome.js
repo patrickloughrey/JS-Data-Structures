@@ -31,3 +31,8 @@ if(reverseWord === word) {
 } else {
 	console.log(word + " is not a palindrome!\n");
 }
+
+/* The Big-O running time for push() and pop() in the stack data structure is O(1) or constant time, because, when using these
+   stack functions, we are only working with the topmost item in the stack, the rest of the items are irrelevant. For example, 
+   when pushing an item onto the stack, the new item is simply placed at the top of the stack. No additional comparisons are 
+   made, so there is only 1 item that needs to be pushed or popped, resulting in a constant running time. */
