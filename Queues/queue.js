@@ -44,7 +44,7 @@ function Queue() {
 
 /* Testing out Queue */
 let q = new Queue();
-q.enqueue('P');
+q.enqueue('P'); /* Since the 'P' is enqueued first, it will be the first to dequeue */
 q.enqueue('a');
 q.enqueue('t');
 q.print();
