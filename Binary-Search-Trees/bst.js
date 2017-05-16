@@ -56,8 +56,28 @@ class BST {
 
 			}; /* End of search tree function */
 
+			return searchTree(node);
+		}
+	}
+
+	/* Function to find the minimum node in the tree */
+	findMin() {
+		let curr = this.root;
+		while(curr.left != null) {
+			curr = curr.left;
 		}
 
-
+		return curr.data;
 	}
+
+	/* Function to find the maximum node in the tree */
+	findMax() {
+		let curr = this.root;
+		while(curr.right != null) {
+			curr = curr.right;
+		}
+		return curr.data;
+	}
+
+
 }
