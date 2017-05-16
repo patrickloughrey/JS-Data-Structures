@@ -63,7 +63,7 @@ class BST {
 	/* Function to find the minimum node in the tree */
 	findMin() {
 		let curr = this.root;
-		while(curr.left != null) {
+		while(curr.left !== null) {
 			curr = curr.left;
 		}
 
@@ -73,10 +73,52 @@ class BST {
 	/* Function to find the maximum node in the tree */
 	findMax() {
 		let curr = this.root;
-		while(curr.right != null) {
+		while(curr.right !== null) {
 			curr = curr.right;
 		}
 		return curr.data;
+	}
+
+	/* Function to find a node in the BST */
+	find(data) {
+		let curr = this.root;
+		while(curr.data !== data) {
+			if(data < curr.data) {
+				curr = curr.left;
+
+			} else {
+				curr = curr.right;
+			}
+			/* If node was not found */
+			if(curr === data) {
+				return null;
+			}
+		}
+
+		return curr;
+	}
+	
+	/* Boolean function to see if a node is present */
+	isPresent(data) {
+		let curr = this.root;
+		while(curr) {
+			if(data === curr.data) {
+				return true;
+			}
+			if(data < curr.data) {
+				curr = curr.left;
+
+			} else {
+				curr = curr.right;
+			}
+		}
+
+		return false;
+	}
+
+	/* Function to remove a node from the BST */
+	remove(data) {
+
 	}
 
 
