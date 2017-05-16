@@ -118,8 +118,65 @@ class BST {
 
 	/* Function to remove a node from the BST */
 	remove(data) {
+		const removeNode = (node, data) => {
+			/* If tree is empty */
+			if(node == null) {
+				return null;
+			}
+			if(data == node.data) {
+				/* Scenario 1: Node to be removed has no children */
+				if(node.left == null && node.right == null) {
+					return null;
+				}
 
+				/* Scenario 2: Node to be removed has no left children */
+				if(node.left == null) {
+					return node.right;
+				}
+
+				/* Scenario 3: Node to be removed has no right children */
+				if(node.right == null) {
+					return node.left;
+				}
+
+				/* Scenario 4: Node has both children */
+				let temp = node.right;
+				/* We replace the node to be deleted with the smallest node in the entire subtree */
+				/* We traverse the subtree until temp.left = null, then we promote that node since it has no children */
+				while(temp.left != null) {
+					temp = temp.left;
+				}
+				node.data = temp.data;
+				node.right = removeNode(node.right, temp.data);
+				return node;
+
+			} else if(data < node.data) {
+				node.left = removeNode(node.left, data);
+				return node;
+
+			} else {
+				node.right = removeNode(node.right, data);
+				return node;
+			}
+		}
+
+		this.root = removeNode(this.root, data);
 	}
-
-
 }
+
+/* Test out the Binary Search Tree */
+const bst = new BST();
+
+bst.add(1);
+bst.add(2);
+bst.add(3);
+bst.add(10);
+bst.add(7);
+bst.add(6);
+bst.add(12);
+bst.add(4);
+bst.remove(4);
+console.log(bst.findMin());
+console.log(bst.findMax());
+console.log(bst.findMax());
+console.log(bst.isPresent(4));
